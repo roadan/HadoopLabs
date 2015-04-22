@@ -15,8 +15,7 @@
 - Perform the following actions using the HDFS shell, when needed use the [HDFS shell documentation](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html):
   - Upload the content of the books folder to the following HDFS location: **/user/cloudera/books**.
   - Print out to the console the number of files in the **/user/cloudera/books** directory.
-  - Move all the books starting with the letter t to **/user/cloudera/t-books**.
-  - Merge **/user/cloudera/books** and **/user/cloudera/t-books** 
+  - Move all the books starting with the letter T to **/user/cloudera/t-books**.
   - Check if the following files exist:
     - /user/cloudera/books/Metamorphosis by Franz Kafka.txt
     - /user/cloudera/t-books/The Art of War by Sunzi.txt
