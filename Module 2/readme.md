@@ -24,7 +24,7 @@
 
 #### Exercise 2 - Set Up HDFS Caching
 
-**Note:** We recommend  you use the [Centralized Cache Management in HDFS](https://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-hdfs/CentralizedCacheManagement.html#Cache_pool_commands) guide, to find the relevant cacheadmin commands as well as expand your understanding of HDFS  Caching.
+**Note:** Use the [Centralized Cache Management in HDFS](https://hadoop.apache.org/docs/r2.3.0/hadoop-project-dist/hadoop-hdfs/CentralizedCacheManagement.html#Cache_pool_commands) guide, to find the relevant cacheadmin commands as well as expand your understanding of HDFS  Caching.
 
 - Setup a cache pool with TTL of 90 minutes
 - Make sure all the content of **/user/cloudera/t-books/** is cached using the above pool
