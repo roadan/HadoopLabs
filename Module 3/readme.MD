@@ -62,7 +62,7 @@
 
 ### Lab 2 - Developing a Map Reduce Job
 
-**Note:** the exercise in this lab are based on the NOAA weather dataset, please familiarize yourself with the data structure, by reading the "A Weather Dataset" topic in the book. The topic can be fund under **I. Hadoop Fundamentals -> 2. MapReduce -> A Weather Dataset**.
+**Note:** the exercise in this lab are based on the NOAA weather dataset, please familiarize yourself with the data structure, by reading the "A Weather Dataset" topic in the book. The topic can be found under **I. Hadoop Fundamentals -> 2. MapReduce -> A Weather Dataset**.
 
 #### Exercise 1 - Creating a Mapper
 
@@ -113,7 +113,7 @@ In this exercise we will create an additional utility class known as the main cl
 - create a new Java class called "AvgTemperature" containing a public static method called main using the following definition:
 
 ```
-public class AvgTemperature {
+public class AvgTemperature extends Configured implements Tool {
 
   public static void main(String[] args) throws Exception {
   }
@@ -124,6 +124,19 @@ public class AvgTemperature {
   - Set the input and output path  - Execute the job and report 0 for success and -1 for failure- build the jar file using the following Maven command:
 ```
 mvn package```
-- execute the map reduce job using the following command:
+
+- Copy the weather dataset using the hadoop distributed copy command
+ 
+ ```
+ hadoop distcp s3n://AKIAIHB4PMQIQZ73MHKQ:4gueMcQoQ0Wh9jGdZnA5zU4IUOD5O49Z2cBGnsiY@uxcpshadoop/weatherdatasetsmall/* hdfs://localhost/user/cloudera/weather
+
+ ```- execute the map reduce job using the following command:
 ```
-hadoop jar <jar_file_name> <main_class_name> <input_path> <output_path>```
+hadoop jar <jar_file_name> <main_class_name> <input_path> <output_path>```#### Exercise 4 - Add filtering using configuration
+In this exercise we will add a maxYear and minYear configuration and filter the input data using those parameters ***Note:*** in order to run this exercise, you need to make sure you have extended the Configured calss and implemented the Tool interface in the AvgTemperature calss- In your map function, use the *context.getConfiguration* method to create a configuration object```
+Configuration conf = context.getConfiguration();```
+- Use the *conf.getInt* method to read two configuration values maxYear and minYear, use the value 1900 as the default for minYear and and the value 3000 for the maxYear.
+- Use the values if maxYear and minYear to filter data from years grater than the maxYear and smaller than the minYear in your code.
+- Re-build the Jar file.- execute the map reduce job using the following command:
+```
+hadoop jar <jar_file_name> <main_class_name> -DminYear=1910 -DmaxYear=1915 <input_path> <output_path>```
