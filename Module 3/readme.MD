@@ -116,22 +116,22 @@ In this exercise we will create an additional utility class known as the main cl
 public class AvgTemperature extends Configured implements Tool {
 
     public static void main(String[] args) throws Exception {
-        int res = ToolRunner.run(new Configuration(), new MaxTemperature(), args);
+        int res = ToolRunner.run(new Configuration(), new AvgTemperature(), args);
         System.exit(res);
     }
 
      public int run(String[] args) throws Exception {
-        if (args.length != 2) {
-            System.err.println("Usage: MaxTemperature <input path> <output path>");
-            System.exit(-1);
-        }
      
      }
 
 }
 ```
-- Implement the run method to do the following:  - Validates that the user provides an inputpath and outputpat parameters.  - Creates a new instance of the org.apache.hadoop.mapreduce.Job cla	ss.  - configure the job's jar and name.  - Configure the job's mapper and reducers classes.  - Set the map key and value types  - Set the reduce key and value types
-  - Set the input and output path  - Execute the job and report 0 for success and -1 for failure- build the jar file using the following Maven command:
+- Implement the run method to do the following:  - Validates that the user provides two parameters (an inputpath and outputpath.  - Creates a new instance of the org.apache.hadoop.mapreduce.Job cla	ss.  - configure the job's jar and name.  - Configure the job's mapper and reducers classes.  - Set the map key and value types  - Set the reduce key and value types
+  - Set the input and output path using the following code:
+  ```Java
+  FileInputFormat.addInputPath(job, new Path(args[0]));
+  FileOutputFormat.setOutputPath(job, new Path(args[1]));
+  ```  - Execute the job and report 0 for success and -1 for failure- build the jar file using the following Maven command:
 ```
 mvn package```
 
