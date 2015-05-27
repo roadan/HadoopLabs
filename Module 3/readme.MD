@@ -91,7 +91,7 @@ This reducer implementation will emit the avarage temperature (type of double) p
 
 ```Java
 public class AvgTemperatureReducer
-  extends Reducer<Text, IntWritable, Text, IntWritable> {
+  extends Reducer<Text, IntWritable, Text, DoubleWritable> {
 }
 ```
 
