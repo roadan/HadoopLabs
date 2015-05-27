@@ -113,7 +113,6 @@ In this exercise we will create an additional utility class known as the main cl
 - create a new Java class called "AvgTemperature" using the following definition:
 
 ```Java
-
 public class AvgTemperature extends Configured implements Tool {
 
     public static void main(String[] args) throws Exception {
@@ -127,7 +126,7 @@ public class AvgTemperature extends Configured implements Tool {
             System.exit(-1);
         }
      
-     {
+     }
 
 }
 ```
