@@ -38,7 +38,7 @@
 
 - Add a **repositories** section containing the Cloudera Maven repository to the pom.xml file using the following code:
 
-```
+```XML
 <repositories>
     <repository>
         <id>cloudera</id>
@@ -50,7 +50,7 @@
 
 - Add a **dependencies** section containing the hadoop-client dependency using the following code. Use the **2.5.0-cdh5.3.2** version.
 
-```
+```XML
 <dependencies>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
@@ -68,7 +68,7 @@
 
 The first mapper implementation will emit key-value pairs containing the station identifier where the temperature was recorder and the value (temperature) that was recorded.- create a new Java class called "StationTemperatureMapper" using the following definition:
 
-```
+```Java
 public class StationTemperatureMapper
   extends Mapper<LongWritable, Text, Text, IntWritable> {
 }
@@ -76,7 +76,7 @@ public class StationTemperatureMapper
 
 - Override the map function using the following definition:
 
-```
+```Java
 @Override
 public void map(LongWritable key, Text value, Context context)
    throws IOException, InterruptedException {
@@ -89,7 +89,7 @@ public void map(LongWritable key, Text value, Context context)
 
 This reducer implementation will emit the avarage temperature (type of double) per station.- create a new Java class called "AvgTemperatureReducer" using the following definition:
 
-```
+```Java
 public class AvgTemperatureReducer
   extends Reducer<Text, IntWritable, Text, IntWritable> {
 }
@@ -97,7 +97,7 @@ public class AvgTemperatureReducer
 
 - Override the reduce function using the following definition:
 
-```
+```Java
 @Override
 public void reduce(Text key, Iterable<IntWritable> values, Context context)
   throws IOException, InterruptedException {
@@ -144,7 +144,7 @@ mvn package```
  ```- execute the map reduce job using the following command:
 ```
 hadoop jar <jar_file_name> <main_class_name> <input_path> <output_path>```#### Exercise 4 - Add filtering using configuration
-In this exercise we will add a maxYear and minYear configuration and filter the input data using those parameters ***Note:*** in order to run this exercise, you need to make sure you have extended the Configured calss and implemented the Tool interface in the AvgTemperature calss- In your map function, use the *context.getConfiguration* method to create a configuration object```
+In this exercise we will add a maxYear and minYear configuration and filter the input data using those parameters ***Note:*** in order to run this exercise, you need to make sure you have extended the Configured calss and implemented the Tool interface in the AvgTemperature calss- In your map function, use the *context.getConfiguration* method to create a configuration object```Java
 Configuration conf = context.getConfiguration();```
 - Use the *conf.getInt* method to read two configuration values maxYear and minYear, use the value 1900 as the default for minYear and and the value 3000 for the maxYear.
 - Use the values if maxYear and minYear to filter data from years grater than the maxYear and smaller than the minYear in your code.
