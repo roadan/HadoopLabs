@@ -37,6 +37,6 @@ hadoop jar WordCount-1.0-SNAPSHOT-job.jar /user/cloudera/books /user/cloudera/ou
 ```
 - Once the job completes successfully open the HUE we UI by opening firefox on your Hadoop cluster and clicking on the Launch HUE UI button.
 - Login using the following credentials:
-	- Username: cloudera
-	- Password: cloudera
--  On the righthand top bar click the Manage HDFS link. and than click *output* than *wordcount* and *part-r-00000* to review the jobs result.	
+	- **Username:** cloudera
+	- **Password:** cloudera
+-  On the righthand top bar click the **Manage HDFS** link. and than click **output** than **wordcount** and **part-r-00000** to review the jobs result.	
