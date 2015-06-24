@@ -1,0 +1,19 @@
+{
+  "type" : "record",
+  "name" : "actors_schema",
+  "namespace" : "com.rodenski.avro",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "string",
+    "doc"  : "The actore id in IMDB"
+  }, {
+    "name" : "name",
+    "type" : "string",
+    "doc"  : "The name of the actor"
+  }, {
+    "name" : "titles",
+    "type" : {"type": "array", "items": "string"},
+    "doc"  : "an array with the ids of all the titles the actor was in"
+  } ],
+  "doc:" : "A basic schema for storing IMDB actors"
+}

@@ -1,0 +1,15 @@
+{
+  "type" : "record",
+  "name" : "movies_schema",
+  "namespace" : "com.rodenski.avro",
+  "fields" : [ {
+    "name" : "movie_id",
+    "type" : "string",
+    "doc"  : "The movies id in IMDB"
+  }, {
+    "name" : "actors",
+    "type" : {"type": "array", "items": "string"},
+    "doc"  : "an array with the actors who played in this movie"
+  } ],
+  "doc:" : "A basic schema for storing IMDB actors"
+}
